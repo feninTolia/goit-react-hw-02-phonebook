@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import { Input, FilterLabel } from './Filter.styled';
 
 export default class Filter extends Component {
