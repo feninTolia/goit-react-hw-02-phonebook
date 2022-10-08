@@ -6,6 +6,7 @@ body {
   color: #e1e1e1;
   margin: 15px;
   font-family: monospace;
+  font-size: 28px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

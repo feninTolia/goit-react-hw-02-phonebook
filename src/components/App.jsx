@@ -6,8 +6,8 @@ import ContactList from './ContactList/ContactList';
 export default class App extends Component {
   state = {
     contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-1', name: 'Rosie Simpson', number: '0993859606' },
+      { id: 'id-2', name: 'Hermione Kline', number: '0503000643' },
     ],
     filter: '',
     name: '',
@@ -15,13 +15,39 @@ export default class App extends Component {
   };
 
   handleAddContactForm = contact => {
-    console.log(contact);
-
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, contact],
+      contacts: [contact, ...prevState.contacts],
     }));
 
     console.log(this.state);
+  };
+
+  handleDeleteContact = userId => {
+    const { contacts } = this.state;
+    console.log(userId);
+    console.log(contacts);
+    const updatedContactList = contacts.filter(el => el.id !== userId);
+    console.log(updatedContactList);
+    this.setState(() => ({
+      contacts: updatedContactList,
+    }));
+  };
+
+  handleContactsFilter = namePart => {
+    const { contacts } = this.state;
+    console.log(namePart);
+    let FiltredContacts = contacts.filter(e =>
+      e.name.toLowerCase().includes(namePart.toLowerCase())
+    );
+    console.log(FiltredContacts);
+
+    if (namePart === '') {
+      FiltredContacts = '';
+    }
+
+    this.setState(() => ({
+      filter: FiltredContacts,
+    }));
   };
 
   render() {
@@ -31,8 +57,12 @@ export default class App extends Component {
         <ContactForm onAddContact={this.handleAddContactForm} />
 
         <h2>Contacts</h2>
-        <Filter />
-        <ContactList contacts={this.state.contacts} />
+        <Filter onContactsFilter={this.handleContactsFilter} />
+        <ContactList
+          filter={this.state.filter}
+          contacts={this.state.contacts}
+          onDeleteContact={this.handleDeleteContact}
+        />
       </>
     );
   }

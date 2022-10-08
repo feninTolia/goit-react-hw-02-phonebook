@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 
 export default class ContactItem extends Component {
   render() {
-    const { name, number } = this.props;
+    const { id, name, number, onDeleteContact } = this.props;
 
     return (
       <li>
         <span>{name} </span>
         <span>{number} </span>
-        <button>delete</button>
+        <button type="button" onClick={() => onDeleteContact(id)}>
+          delete
+        </button>
       </li>
     );
   }

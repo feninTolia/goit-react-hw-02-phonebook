@@ -6,14 +6,14 @@ export const AddContactForm = styled(Form)`
   flex-direction: column;
   gap: 20px;
 
-  width: 70vw;
+  width: 50vw;
   margin: 15px auto;
   padding: 20px;
   margin-bottom: 30px;
 
   font-family: monospace;
   color: white;
-  font-size: 18px;
+  /* font-size: 32px; */
   background-color: #444;
   border-radius: 15px;
 `;
@@ -23,6 +23,7 @@ export const Input = styled(Field)`
   width: 100%;
   margin-top: 10px;
   border-radius: 10px;
+  font-size: 28px;
   border: none;
   background-color: #999;
   padding: 5px 10px;
@@ -35,6 +36,7 @@ export const AddContactBtn = styled.button`
   align-self: center;
 
   font-family: monospace;
+  font-size: 28px;
   color: black;
   border-radius: 10px;
   border: none;
@@ -49,6 +51,6 @@ export const AddContactBtn = styled.button`
 export const ErrorMesage = styled.div`
   margin-top: 10px;
   padding-left: 10px;
-  font-size: 10px;
+  font-size: 18px;
   color: red;
 `;

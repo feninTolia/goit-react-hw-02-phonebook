@@ -39,7 +39,7 @@ export default class ContactForm extends Component {
         }}
       >
         {({ errors, touched }) => (
-          <AddContactForm>
+          <AddContactForm noValidate>
             <label htmlFor="name">
               Name
               <Input type="text" name="name" id="name" required />

@@ -3,14 +3,19 @@ import ContactItem from './ContactItem';
 
 export default class ContactList extends Component {
   render() {
-    const { contacts } = this.props;
+    const { contacts, filter, onDeleteContact } = this.props;
 
     return (
       <ul>
-        {contacts &&
-          contacts.map(({ id, name, number }) => (
-            <ContactItem key={id} name={name} number={number} />
-          ))}
+        {(filter || contacts).map(({ id, name, number }) => (
+          <ContactItem
+            key={id}
+            name={name}
+            number={number}
+            onDeleteContact={onDeleteContact}
+            id={id}
+          />
+        ))}
       </ul>
     );
   }
