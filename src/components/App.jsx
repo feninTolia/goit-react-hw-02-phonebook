@@ -29,16 +29,13 @@ export default class App extends Component {
     this.setState(prevState => ({
       contacts: [contact, ...prevState.contacts],
     }));
-
-    console.log(this.state);
   };
 
   handleDeleteContact = userId => {
     const { contacts } = this.state;
-    console.log(userId);
-    console.log(contacts);
+
     const updatedContactList = contacts.filter(el => el.id !== userId);
-    console.log(updatedContactList);
+
     this.setState(() => ({
       contacts: updatedContactList,
       filter: '',
@@ -47,11 +44,10 @@ export default class App extends Component {
 
   handleContactsFilter = namePart => {
     const { contacts } = this.state;
-    console.log(namePart);
+
     let FiltredContacts = contacts.filter(e =>
       e.name.toLowerCase().includes(namePart.toLowerCase())
     );
-    console.log(FiltredContacts);
 
     if (namePart === '') {
       FiltredContacts = '';
