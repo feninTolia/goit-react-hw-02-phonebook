@@ -15,6 +15,17 @@ export default class App extends Component {
   };
 
   handleAddContactForm = contact => {
+    const { contacts } = this.state;
+    if (contacts.some(el => el.number === contact.number)) {
+      window.alert(`${contact.number} is already exist in your phonebook`);
+      return;
+    }
+
+    if (contacts.some(el => el.name === contact.name)) {
+      window.alert(`${contact.name} is already exist in your phonebook`);
+      return;
+    }
+
     this.setState(prevState => ({
       contacts: [contact, ...prevState.contacts],
     }));

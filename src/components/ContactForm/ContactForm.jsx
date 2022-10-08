@@ -26,14 +26,13 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
 export default class ContactForm extends Component {
   render() {
     const { onAddContact } = this.props;
-    // console.log(onAddContact());
+
     return (
       <Formik
         initialValues={{ name: '', number: '', id: '' }}
         validationSchema={DisplayingErrorMessagesSchema}
         onSubmit={(values, actions) => {
           values.id = nanoid(5);
-          console.log(values);
           actions.resetForm();
           onAddContact(values);
         }}
@@ -50,7 +49,7 @@ export default class ContactForm extends Component {
 
             <label htmlFor="number">
               Number
-              <Input type="text" name="number" id="number" required />
+              <Input type="tel" name="number" id="number" required />
               {touched.number && errors.number && (
                 <ErrorMesage>{errors.number}</ErrorMesage>
               )}
