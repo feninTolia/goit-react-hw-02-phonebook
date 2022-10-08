@@ -41,6 +41,7 @@ export default class App extends Component {
     console.log(updatedContactList);
     this.setState(() => ({
       contacts: updatedContactList,
+      filter: '',
     }));
   };
 
