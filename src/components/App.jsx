@@ -11,12 +11,12 @@ export default class App extends Component {
 
   handleAddContactForm = contact => {
     const { contacts } = this.state;
-    if (contacts.some(el => el.number === contact.number)) {
+    if (contacts && contacts.some(el => el.number === contact.number)) {
       window.alert(`${contact.number} is already exist in your phonebook`);
       return;
     }
 
-    if (contacts.some(el => el.name === contact.name)) {
+    if (contacts && contacts.some(el => el.name === contact.name)) {
       window.alert(`${contact.name} is already exist in your phonebook`);
       return;
     }
@@ -30,7 +30,7 @@ export default class App extends Component {
     const { contacts, filter } = this.state;
 
     const updatedContactList = contacts.filter(el => el.id !== userId);
-    const updateFilterdList = filter.filter(el => el.id !== userId);
+    const updateFilterdList = filter && filter.filter(el => el.id !== userId);
 
     this.setState(() => ({
       contacts: updatedContactList,
